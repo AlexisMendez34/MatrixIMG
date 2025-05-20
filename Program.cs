@@ -14,9 +14,6 @@ namespace MatrixIMG
             //Se requieren realizar las funciones que hagan la transpuesta, y la reversa transpuesta de dicha matriz.
             //Despues se debe crear una imagen a partir de la matriz de píxeles, y guardar la imagen en un archivo.
             //Por ultimo, se debe realizar una interfaz que permita al usuario elegir que proceso realizar.
-            //piña de tess :)
-            //Casillas puto
-            //correccion, amante del mismo genero
         }
     }
 }
