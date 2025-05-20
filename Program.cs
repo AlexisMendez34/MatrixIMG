@@ -16,6 +16,7 @@ namespace MatrixIMG
             //Por ultimo, se debe realizar una interfaz que permita al usuario elegir que proceso realizar.
             //piña de tess :)
             //Casillas puto
+            //correccion, amante del mismo genero
         }
     }
 }
