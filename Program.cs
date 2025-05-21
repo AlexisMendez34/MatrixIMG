@@ -14,7 +14,7 @@ namespace MatrixIMG
             Modificar operacion = new Modificar(); //Operaciones con matrices
             Construir construccion = new Construir(); //Crear la nueva imagen a partir de la matriz modificada
 
-            extractor.ExtIMG();
+            int[,] matrix = extractor.ExtIMG();
 
             Console.WriteLine("Presione cualquier tecla para salir");
             Console.ReadKey();
