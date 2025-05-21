@@ -10,11 +10,13 @@ namespace MatrixIMG
 {
     class Extraer
     {
-        public void ExtIMG()
+        int[,] matrix;
+        public int[,] ExtIMG()
         {
             if (!File.Exists("../../imagenes/casillas.png"))
             {
                 Console.WriteLine("Imagen no encontrada");
+                matrix = new int[0, 0];
             }
             else
             {
@@ -23,8 +25,9 @@ namespace MatrixIMG
                 //Extracción de matriz a partir de la imagen
                 Bitmap imgBit = new Bitmap("../../imagenes/casillas.png");
                 int tamImg = imgBit.Width;
-                int[,] matrix = new int[tamImg, tamImg];
+                matrix = new int[tamImg, tamImg];
 
+                //Recorrido del arreglo bidimensional (matriz) para almacenar los pixeles de la imagen monocromática en la matriz
                 for (int i = 0; i < tamImg; i++)
                 {
                     for (int j = 0; j < tamImg; j++)
@@ -40,8 +43,9 @@ namespace MatrixIMG
                 }
                 Console.WriteLine("Extracción exitosa!");
                 Console.WriteLine("...");
-                Modificar modificar = new Modificar();
+                //Modificar modificar = new Modificar();
             }
+            return matrix;
         }
         public static char Renderizar(int pixel)
         {
