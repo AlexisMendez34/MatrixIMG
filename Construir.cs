@@ -5,28 +5,30 @@ namespace MatrixIMG
 {
     class Construir
     {
-        public void GuardarImagenDesdeMatriz(int[,] matriz, string rutaArchivo)
+        public void GuardarImagenDesdeMatriz(string rutaArchivo)
         {
-            int ancho = matriz.GetLength(0);
-            int alto = matriz.GetLength(1);
+            int[,] matriz = new int[2, 2]
+            {
+                { 0, 255 },
+                { 255, 0 }
+            };
+
+            int ancho = 2;
+            int alto = 2;
 
             using (Bitmap imagen = new Bitmap(ancho, alto))
             {
-                for (int y = 0; y < alto; y++)
-                {
-                    for (int x = 0; x < ancho; x++)
-                    {
-                        int valor = matriz[x, y];
-                        Color color = Color.FromArgb(valor, valor, valor); // Blanco o negro
-                        imagen.SetPixel(x, y, color);
-                    }
-                }
+                imagen.SetPixel(0, 0, Color.FromArgb(matriz[0, 0], matriz[0, 0], matriz[0, 0]));
+                imagen.SetPixel(1, 0, Color.FromArgb(matriz[1, 0], matriz[1, 0], matriz[1, 0]));
+                imagen.SetPixel(0, 1, Color.FromArgb(matriz[0, 1], matriz[0, 1], matriz[0, 1]));
+                imagen.SetPixel(1, 1, Color.FromArgb(matriz[1, 1], matriz[1, 1], matriz[1, 1]));
 
                 imagen.Save(rutaArchivo, System.Drawing.Imaging.ImageFormat.Png);
                 Console.WriteLine($"Imagen guardada en: {rutaArchivo}");
                 Console.ReadKey();
             }
         }
+
 
         public class Cuadriculado
         {
