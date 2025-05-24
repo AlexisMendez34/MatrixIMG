@@ -22,7 +22,9 @@ namespace MatrixIMG
                     }
                     imagen.Save(rutaArchivo, System.Drawing.Imaging.ImageFormat.Png);
                     Console.WriteLine($"Imagen guardada en: {rutaArchivo}");
+                    Console.WriteLine("Presione enter para continuar...");
                     Console.ReadKey();
+                    Console.Clear();
                 }
             }
         }

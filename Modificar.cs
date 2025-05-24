@@ -21,16 +21,13 @@ namespace MatrixIMG
                 for (int i = 0; i < modMatrix.GetLength(0); i++)
                 {
                     int pixel = modMatrix[j, i];
-                    char pix = Renderizar(pixel);
-                    Console.Write(pix + " ");
+                    /*char pix = Renderizar(pixel);
+                        Console.Write(pix + " ");*/
                     tempMatrix[i, j] = pixel;
                 }
-                Console.Write("\n");
+                //Console.Write("\n");
             }
-            Console.Write("\nTranspuesta lista\n\n");
-
-            Console.Write("Presione enter para continuar...");
-            Console.ReadKey();
+            Console.WriteLine("Transpuesta lista\n...");
 
             return tempMatrix;
         }
@@ -45,20 +42,14 @@ namespace MatrixIMG
                 for (int i = modMatrix.GetLength(0) - 1; i >= 0; i--)
                 {
                     int pixel = modMatrix[j, i];
-                    char pix = Renderizar(pixel);
-                    Console.Write(pix + " ");
-                    try
-                    {
-                        tempMatrix[modMatrix.GetLength(1) - i, j] = pixel;
-                    }
-                    catch { }
-                }
-                Console.Write("\n");
-            }
-            Console.Write("\nTranspuesta e inversa lista\n\n");
+                    /*char pix = Renderizar(pixel);
+                        Console.Write(pix + " ");*/
 
-            Console.Write("Presione enter para continuar...");
-            Console.ReadKey();
+                    tempMatrix[modMatrix.GetLength(1) - i, j] = pixel;
+                }
+                //Console.Write("\n");
+            }
+            Console.WriteLine("Transpuesta e inversa lista\n...");
 
             return tempMatrix;
         }
@@ -94,24 +85,28 @@ namespace MatrixIMG
                         modMatrix[j, i] = pixel;
                     }
                 }
-                Console.Write("\nEl ruido ha sido agregado correctamente\n\n");
+                Console.WriteLine("El ruido ha sido agregado correctamente\n...");
             }
             catch(FormatException ex)
             {
+                Console.Clear();
                 Console.WriteLine(ex.Message);
             }
             catch (ArgumentOutOfRangeException ex)
             {
+                Console.Clear();
                 Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
+                Console.Clear();
                 Console.WriteLine(ex.Message);
             }
             finally
             {
-                Console.Write("Presione enter para continuar...");
+                Console.WriteLine("Presione enter para continuar...");
                 Console.ReadKey();
+                Console.Clear();
             }
 
             return modMatrix;

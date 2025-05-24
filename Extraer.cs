@@ -18,10 +18,12 @@ namespace MatrixIMG
             {
                 Console.WriteLine("Imagen no encontrada");
                 matrix = new int[0, 0];
+                Console.WriteLine("Presione cualquier tecla para continuar");
+                Console.ReadLine();
             }
             else
             {
-                Console.WriteLine("Extracción de matriz preparada...");
+                Console.WriteLine("Extracción de matriz preparada\n...");
 
                 //Extracción de matriz a partir de la imagen
                 Bitmap imgBit = new Bitmap(img);
@@ -44,11 +46,11 @@ namespace MatrixIMG
                         Color color = imgBit.GetPixel(j, i);
                         int pixel = (color.R + color.G + color.B) / 3;
                         matrix[j, i] = pixel;
-                        char pix = Renderizar(pixel);
-                        Console.Write(pix + " ");
+                        /*char pix = Renderizar(pixel);
+                        Console.Write(pix + " ");*/
                         //Console.Write(matrix[j,i]+" ");
                     }
-                    Console.Write("\n");
+                    //Console.Write("\n");
                 }
                 Console.WriteLine("Extracción exitosa!");
                 Console.WriteLine("...");
@@ -56,7 +58,7 @@ namespace MatrixIMG
             }
             return matrix;
         }
-        public static char Renderizar(int pixel)
+        /*public static char Renderizar(int pixel)
         {
             if (pixel >= 250) return '█';
             if (pixel >= 230) return '#';
@@ -66,6 +68,6 @@ namespace MatrixIMG
             if (pixel >= 30) return '.';
 
             return' ';
-        }
+        }*/
     }
 }

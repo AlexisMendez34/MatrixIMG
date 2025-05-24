@@ -83,6 +83,7 @@ namespace MatrixIMG
                     case '-':
                         break;
                     default:
+                        Console.WriteLine("Inciso invalido");
                         break;
                 }
             }
