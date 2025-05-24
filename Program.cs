@@ -17,9 +17,6 @@ namespace MatrixIMG
 
             string archivo = null;
             int[,] matrix;            
-
-            Console.WriteLine("Presione cualquier tecla para salir");
-            Console.ReadKey();
             char op = '-';
             do
             {
@@ -58,17 +55,21 @@ namespace MatrixIMG
                         archivo = Console.ReadLine();
                         matrix = extractor.ExtIMG(archivo);
                         operacion.Transpuesta(matrix);
-                        construccion.GuardarImagenDesdeMatriz("../../imagenes/transpuesta_" + archivo);
+                        construccion.GuardarImagenDesdeMatriz("../../imagenes/transpuesta_" + archivo, matrix);
                         Console.Clear();
                         break;
                     case 'b':
                         archivo = Console.ReadLine();
                         matrix = extractor.ExtIMG(archivo);
                         operacion.TranspuestaInversa(matrix);
-                        construccion.GuardarImagenDesdeMatriz("../../imagenes/reflexion_" + archivo);                        Console.Clear();
+                        construccion.GuardarImagenDesdeMatriz("../../imagenes/reflexion_" + archivo, matrix);
                         Console.Clear();
                         break;
                     case 'c':
+                        archivo = Console.ReadLine();
+                        matrix = extractor.ExtIMG(archivo);
+                        operacion.GenerarRuido(matrix);
+                        construccion.GuardarImagenDesdeMatriz("../../imagenes/ruido_" + archivo, matrix);
                         break;
                     case 'd':
                         break;
