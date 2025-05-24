@@ -10,7 +10,6 @@ namespace MatrixIMG
 {
     class Modificar : Extraer
     {
-
         public int[,] Transpuesta(int[,] modMatrix) 
         {
 
