@@ -11,9 +11,10 @@ namespace MatrixIMG
     class Extraer
     {
         int[,] matrix;
-        public int[,] ExtIMG()
+        public int[,] ExtIMG(string archivo)
         {
-            if (!File.Exists("../../imagenes/casillas.png"))
+            string img = "../../imagenes/" + archivo;
+            if (!File.Exists(img))
             {
                 Console.WriteLine("Imagen no encontrada");
                 matrix = new int[0, 0];
@@ -23,7 +24,7 @@ namespace MatrixIMG
                 Console.WriteLine("Extracción de matriz preparada...");
 
                 //Extracción de matriz a partir de la imagen
-                Bitmap imgBit = new Bitmap("../../imagenes/casillas.png");
+                Bitmap imgBit = new Bitmap(img);
                 int tamImg = imgBit.Width;
                 matrix = new int[tamImg, tamImg];
 

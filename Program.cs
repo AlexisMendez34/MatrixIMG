@@ -15,14 +15,8 @@ namespace MatrixIMG
             Modificar operacion = new Modificar(); //Operaciones con matrices
             Construir construccion = new Construir(); //Crear la nueva imagen a partir de la matriz modificada
 
-            int[,] matrix;
-
-            operacion.TranspuestaInversa(matrix);
-
-            Construir.Cuadriculado cuadriculado = new Construir.Cuadriculado(8, 10); // 8x8 cuadros de 10 píxeles
-
-
-            construccion.GuardarImagenDesdeMatriz("../../imagenes/cuadricula.png");
+            string archivo = null;
+            int[,] matrix;            
 
             Console.WriteLine("Presione cualquier tecla para salir");
             Console.ReadKey();
@@ -37,6 +31,7 @@ namespace MatrixIMG
                 Console.WriteLine("|\tc) Ruido\t\t|");
                 Console.WriteLine("|\td) Salir\t\t|");
                 Console.WriteLine(" -------------------------------");
+                Console.WriteLine("\nArchivo actual: " + (String.IsNullOrEmpty(archivo) ? "Ninguno" : archivo));
 
                 Console.Write("\nIngrese un inciso: ");
                 try
@@ -60,34 +55,18 @@ namespace MatrixIMG
                 {
                     case 'a':
                         Console.Write("Ingrese el nombre de la imagen: ");
-                        try
-                        {
-                            if (!File.Exists(Console.ReadLine())) 
-                            {
-                                Console.WriteLine("El archivo no existe");
-                                Console.WriteLine("Presione cualquier tecla para continuar");
-                                Console.ReadKey();
-                            }
-                            else
-                            {
-                                matrix = extractor.ExtIMG();
-                                operacion.Transpuesta(matrix);
-                            }
-                        }
-                        catch (FormatException ex)
-                        {
-                            op = '-';
-                            Console.Clear();
-                            Console.WriteLine("Ha ocurrido un error: " + ex.Message);
-                            Console.WriteLine("Presione cualquier tecla para continuar");
-                            Console.ReadKey();
-                        }
-                        finally
-                        {
-                            Console.Clear();
-                        }
+                        archivo = Console.ReadLine();
+                        matrix = extractor.ExtIMG(archivo);
+                        operacion.Transpuesta(matrix);
+                        construccion.GuardarImagenDesdeMatriz("../../imagenes/transpuesta_" + archivo);
+                        Console.Clear();
                         break;
                     case 'b':
+                        archivo = Console.ReadLine();
+                        matrix = extractor.ExtIMG(archivo);
+                        operacion.TranspuestaInversa(matrix);
+                        construccion.GuardarImagenDesdeMatriz("../../imagenes/reflexion_" + archivo);                        Console.Clear();
+                        Console.Clear();
                         break;
                     case 'c':
                         break;
