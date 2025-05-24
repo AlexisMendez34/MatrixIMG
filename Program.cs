@@ -28,7 +28,9 @@ namespace MatrixIMG
                 Console.WriteLine("|\tc) Ruido\t\t|");
                 Console.WriteLine("|\td) Salir\t\t|");
                 Console.WriteLine(" -------------------------------");
-                Console.WriteLine("\nArchivo actual: " + (String.IsNullOrEmpty(archivo) ? "Ninguno" : archivo));
+                Console.WriteLine("\nÚltimo rchivo: " + (String.IsNullOrEmpty(archivo) ? "Ninguno" : archivo));
+
+                Console.WriteLine("Puede usar la imagen 'casillas.png' como prueba\no puede guardar sus propias imagenes\ndeben ser imagenes cuadradas"); //Ruta de la carpeta imagenes /Proyecto/imagenes
 
                 Console.Write("\nIngrese un inciso: ");
                 try
@@ -59,6 +61,7 @@ namespace MatrixIMG
                         Console.Clear();
                         break;
                     case 'b':
+                        Console.Write("Ingrese el nombre de la imagen: ");
                         archivo = Console.ReadLine();
                         matrix = extractor.ExtIMG(archivo);
                         matrix = operacion.TranspuestaInversa(matrix);
@@ -66,12 +69,16 @@ namespace MatrixIMG
                         Console.Clear();
                         break;
                     case 'c':
+                        Console.Write("Ingrese el nombre de la imagen: ");
                         archivo = Console.ReadLine();
                         matrix = extractor.ExtIMG(archivo);
                         matrix = operacion.GenerarRuido(matrix);
                         construccion.GuardarImagenDesdeMatriz("../../imagenes/ruido_" + archivo, matrix);
                         break;
                     case 'd':
+                        Console.WriteLine("Adios :)");
+                        Console.WriteLine("Presione cualquier tecla para salir del programa");
+                        Console.ReadKey();
                         break;
                     case '-':
                         break;

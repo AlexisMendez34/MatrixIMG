@@ -26,6 +26,14 @@ namespace MatrixIMG
                 //Extracción de matriz a partir de la imagen
                 Bitmap imgBit = new Bitmap(img);
                 int tamImg = imgBit.Width;
+                if(imgBit.Width != imgBit.Height)
+                {
+                    Console.WriteLine("No es un a imagen cuadrada.");
+                    matrix = new int[0, 0];
+                    Console.WriteLine("Presione cualquier tecla para continuar");
+                    Console.ReadLine();
+                    return matrix;
+                }
                 matrix = new int[tamImg, tamImg];
 
                 //Recorrido del arreglo bidimensional (matriz) para almacenar los pixeles de la imagen monocromática en la matriz
