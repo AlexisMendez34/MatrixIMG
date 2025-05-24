@@ -40,7 +40,7 @@ namespace MatrixIMG
             if (modMatrix.GetLength(0) == 0) return modMatrix;
             int[,] tempMatrix = new int[modMatrix.GetLength(0), modMatrix.GetLength(1)];
 
-            for (int j = modMatrix.GetLength(1) - 1; j >= 0; j--) // Igual que la transpuesta solamente que el arreglo empieza desde el último elemento del arreglo
+            for (int j = 0; j < modMatrix.GetLength(1); j++) // Igual que la transpuesta solamente que el arreglo empieza desde el último elemento del arreglo
             {
                 for (int i = modMatrix.GetLength(0) - 1; i >= 0; i--)
                 {
@@ -49,7 +49,7 @@ namespace MatrixIMG
                     Console.Write(pix + " ");
                     try
                     {
-                        tempMatrix[modMatrix.GetLength(0) - j, modMatrix.GetLength(1) - i] = modMatrix[i, j];
+                        tempMatrix[modMatrix.GetLength(1) - i, j] = pixel;
                     }
                     catch { }
                 }
@@ -94,7 +94,7 @@ namespace MatrixIMG
                         modMatrix[j, i] = pixel;
                     }
                 }
-                Console.Write("\nEl ruuido agregado correctamente\n\n");
+                Console.Write("\nEl ruido ha sido agregado correctamente\n\n");
             }
             catch(FormatException ex)
             {
