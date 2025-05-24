@@ -54,21 +54,21 @@ namespace MatrixIMG
                         Console.Write("Ingrese el nombre de la imagen: ");
                         archivo = Console.ReadLine();
                         matrix = extractor.ExtIMG(archivo);
-                        operacion.Transpuesta(matrix);
+                        matrix = operacion.Transpuesta(matrix);
                         construccion.GuardarImagenDesdeMatriz("../../imagenes/transpuesta_" + archivo, matrix);
                         Console.Clear();
                         break;
                     case 'b':
                         archivo = Console.ReadLine();
                         matrix = extractor.ExtIMG(archivo);
-                        operacion.TranspuestaInversa(matrix);
+                        matrix = operacion.TranspuestaInversa(matrix);
                         construccion.GuardarImagenDesdeMatriz("../../imagenes/reflexion_" + archivo, matrix);
                         Console.Clear();
                         break;
                     case 'c':
                         archivo = Console.ReadLine();
                         matrix = extractor.ExtIMG(archivo);
-                        operacion.GenerarRuido(matrix);
+                        matrix = operacion.GenerarRuido(matrix);
                         construccion.GuardarImagenDesdeMatriz("../../imagenes/ruido_" + archivo, matrix);
                         break;
                     case 'd':

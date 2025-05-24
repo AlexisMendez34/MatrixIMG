@@ -12,6 +12,7 @@ namespace MatrixIMG
     {
         public int[,] Transpuesta(int[,] modMatrix) 
         {
+            int[,] tempMatrix = new int[modMatrix.GetLength(0), modMatrix.GetLength(1)];
 
             for (int j = 0; j < modMatrix.GetLength(1); j++) // El arreglo se recorre por cada renglon y después sigue a la siguiente columna
             {
@@ -20,6 +21,7 @@ namespace MatrixIMG
                     int pixel = modMatrix[j, i];
                     char pix = Renderizar(pixel);
                     Console.Write(pix + " ");
+                    tempMatrix[i, j] = modMatrix[j, i];
                 }
                 Console.Write("\n");
             }
@@ -28,13 +30,13 @@ namespace MatrixIMG
             Console.Write("Presione enter para continuar...");
             Console.ReadKey();
 
-            return modMatrix;
+            return tempMatrix;
         }
 
         public int[,] TranspuestaInversa(int[,] modMatrix)
         {
 
-            int tamImg = modMatrix.Length;
+            int[,] tempMatrix = new int[modMatrix.GetLength(0), modMatrix.GetLength(1)];
 
             for (int j = modMatrix.GetLength(1) - 1; j >= 0; j--) // Igual que la transpuesta solamente que el arreglo empieza desde el último elemento del arreglo
             {
@@ -43,6 +45,11 @@ namespace MatrixIMG
                     int pixel = modMatrix[j, i];
                     char pix = Renderizar(pixel);
                     Console.Write(pix + " ");
+                    try
+                    {
+                        tempMatrix[modMatrix.GetLength(0) - j, modMatrix.GetLength(1) - i] = modMatrix[i, j];
+                    }
+                    catch { }
                 }
                 Console.Write("\n");
             }
@@ -51,7 +58,7 @@ namespace MatrixIMG
             Console.Write("Presione enter para continuar...");
             Console.ReadKey();
 
-            return modMatrix;
+            return tempMatrix;
         }
 
         public int[,] GenerarRuido(int[,] modMatrix)
